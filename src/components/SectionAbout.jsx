@@ -1,9 +1,78 @@
 import React from 'react';
-import {Container,Row, Col, Button, Icon, Card} from 'react-materialize'
+import {Container,Row, Col, Button, Icon, Card, Select, TextInput} from 'react-materialize'
+import Persons from "./Persons/Persons";
+import Comments from "./Comments/Comments";
+import Convex from "./Convex/Convex";
+import FormContainer from "./FormContainer/FormContainer";
+import Footer from "./Footer/Footer";
+
+
+
+const comments = [
+    {login:'Vasya',avatar:'https://twizz.ru/wp-content/uploads/-000//1/12-32.jpg', date:'10.10.2021', text:"Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям." },
+    {login:'Vasy2',avatar:'https://static.kulturologia.ru/files/u18214/portrait61.jpg', date:'10.10.2021', text:'Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития.'},
+    {login:'Vasy3',avatar:'https://i.pinimg.com/originals/37/96/88/379688670502e9edf28d261dd3c143d2.jpg', date:'10.10.2021', text:'На чили ан кайфи'},
+]
+
+
+const initialState = [
+    {
+        id:0,
+        firstname:"Аркадий",
+        surname:"Укурник",
+        profession:"гениральный директор",
+        avatar:'team/arcadiy.jpg',
+        links:[ //TODO соц сети
+            {
+                text:"",
+                url:"",
+                icon:"",
+            }
+        ],
+        description:"Создатель компании 'Extremly', эксперт в области отдыха и чила, кандидат наук по кайфологии и" +
+            " релаксоведению. Автор книги 'Чилил, Чилю, Буду Чилить' и 'Тупа адыхаю'."
+
+    },
+    {
+        id:1,
+        firstname:"Виктор",
+        surname:"Альбиносов",
+        profession:"исполнительный директор",
+        avatar: 'team/victor.jpeg',
+        links:[ //TODO соц сети
+            {
+                text:"",
+                url:"",
+                icon:"",
+            }
+        ],
+        description:"Тот самый парень, что делает 90 процентов и работы и за это мы благодарны ему. Именно он делает" +
+            " возможной деятельность компании."
+
+    },
+    {
+        id:2,
+        firstname:"Виктория",
+        surname:"Импалова",
+        profession:"Маркетолог",
+        avatar:'team/victoria.jpg',
+        links:[ //TODO соц сети
+            {
+                text:"",
+                url:"",
+                icon:"",
+            }
+        ],
+        description:"Вика наш козырь в рукаве. Ведь с её складом ума, а также социальными и бизнес-наывками " +
+            "показатели компании растут как грибы."
+
+    },
+]
 
 const SectionAbout = () => {
     return (
         <section style={{backgroundColor:"#222222", padding:"30px 0"}}>
+
             <Container>
                 <Row style={{padding:"34px 25px", backgroundColor:'#101010', marginBottom:'60px'}}>
                     <Col className="m4 push white-text">
@@ -59,17 +128,72 @@ const SectionAbout = () => {
                     </Col>
                 </Row>
                 <h3 className="white-text">Наша команда:</h3>
-                <Row>
-                    <Col>
-                        <img src="" alt=""/> 
-                    </Col>
-                    <Col>
-                        <img src="" alt=""/>
-                    </Col>
-                    <Col>
-                        <img src="" alt=""/>
-                    </Col>
-                </Row>
+                <Persons persons={initialState}/>
+                <Comments comments={comments}/>
+                <h3 className="white-text">Подписаться на рассылку:</h3>
+                <Convex size={"large"} s={12} background={'linear-gradient(269.17deg, #DB4463 13.23%, #F2733C 88.24%)'}>
+                    <FormContainer icon={<img style={{width:'100%'}} src="img/ui/letter.png" alt=""/>} background={'#111111'}>
+                        <form action="">
+                            <Row>
+
+                                    <Select
+                                        s={10}
+                                        icon={<Icon>cloud</Icon>}
+                                        id="Select-15"
+                                        multiple={false}
+                                        options={{
+                                            classes: '',
+                                            dropdownOptions: {
+                                                alignment: 'left',
+                                                autoTrigger: true,
+                                                closeOnClick: true,
+                                                constrainWidth: true,
+                                                coverTrigger: true,
+                                                hover: false,
+                                                inDuration: 150,
+                                                onCloseEnd: null,
+                                                onCloseStart: null,
+                                                onOpenEnd: null,
+                                                onOpenStart: null,
+                                                outDuration: 250
+                                            }
+                                        }}
+                                        value=""
+                                    >
+                                        <option
+                                            disabled
+                                            value=""
+                                        >
+                                            Choose your option
+                                        </option>
+                                        <option value="1">
+                                            Option 1
+                                        </option>
+                                        <option value="2">
+                                            Option 2
+                                        </option>
+                                        <option value="3">
+                                            Option 3
+                                        </option>
+                                    </Select>
+
+
+                                    <TextInput
+                                        s={10}
+
+                                        icon={<Icon>email</Icon>}
+                                        id="TextInput-34"
+                                        label="Email"
+                                    />
+                                    <Row>
+                                        <Col push={'s7'} s={3}>
+                                            <Button >Подписаться</Button>
+                                        </Col>
+                                    </Row>
+                            </Row>
+                        </form>
+                    </FormContainer>
+                </Convex>
             </Container>
         </section>
     );

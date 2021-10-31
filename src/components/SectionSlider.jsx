@@ -22,6 +22,7 @@ const SectionSlider = () => {
                     <p style={{backgroundColor:"rgba(0,0,0,0.6)", textAlign:'center', fontSize:"2em", width:'100%', padding:'14px'}}>События</p>
                 </div>
             </Carousel>
+            <hr/>
         </section>
     )
 };
