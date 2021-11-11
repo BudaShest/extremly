@@ -1,27 +1,20 @@
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
 import '../node_modules/materialize-css/dist/js/materialize.min';
+import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import SectionSlider from "./components/SectionSlider";
-import SectionAbout from "./components/SectionAbout";
 import Footer from "./components/Footer/Footer";
-import {Parallax} from 'react-materialize';
 
+import MainRouter from "./router/MainRouter";
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <SectionSlider/>
-      <SectionAbout/>
-        <Parallax
-            image={<img alt="" src="http://materializecss.com/images/parallax1.jpg"/>}
-            options={{
-                responsiveThreshold: 0
-            }}
-        />
-      <Footer/>
-    </div>
+    <Router>
+        <Header/>
+        <MainRouter/>
+        <Footer/>
+    </Router>
+
   );
 }
 

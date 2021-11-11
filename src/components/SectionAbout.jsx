@@ -8,14 +8,15 @@ import Footer from "./Footer/Footer";
 
 
 
-const comments = [
+
+export const comments = [
     {login:'Vasya',avatar:'https://twizz.ru/wp-content/uploads/-000//1/12-32.jpg', date:'10.10.2021', text:"Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям." },
     {login:'Vasy2',avatar:'https://static.kulturologia.ru/files/u18214/portrait61.jpg', date:'10.10.2021', text:'Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития.'},
     {login:'Vasy3',avatar:'https://i.pinimg.com/originals/37/96/88/379688670502e9edf28d261dd3c143d2.jpg', date:'10.10.2021', text:'На чили ан кайфи'},
 ]
 
 
-const initialState = [
+export const initialState = [
     {
         id:0,
         firstname:"Аркадий",
@@ -138,7 +139,7 @@ const SectionAbout = () => {
 
                                     <Select
                                         s={10}
-                                        icon={<Icon>cloud</Icon>}
+                                        icon={<Icon className="little-icon">cloud</Icon>}
                                         id="Select-15"
                                         multiple={false}
                                         options={{
@@ -181,7 +182,7 @@ const SectionAbout = () => {
                                     <TextInput
                                         s={10}
 
-                                        icon={<Icon>email</Icon>}
+                                        icon={<Icon className="little-icon">email</Icon>}
                                         id="TextInput-34"
                                         label="Email"
                                     />
