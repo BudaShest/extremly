@@ -4,12 +4,14 @@ import style from './SocialLinks.module.css';
 
 const SocialLinks = ({links}) => {
     return (
-        <Row>
+        <Row className={style.linksRow}>
             {
                 links.map(link=>{
                     return (
-                        <Col key={link.id}>
-                            <img className={style.linkImg} src={link.img} alt=""/>
+                        <Col push={"s1"} key={link.id}>
+                            <a target="_blank" href={link.src}>
+                                <img className={`${style.linkImg} hoverable`} src={link.img} alt=""/>
+                            </a>
                         </Col>
                     );
                 })

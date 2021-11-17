@@ -2,7 +2,9 @@ import React,{useState, useEffect} from 'react';
 import {Col, Row} from "react-materialize";
 import style from './Persons.module.css';
 import Person from "../Person/Person";
+import SocialLinks from "../SocialLinks/SocialLinks";
 
+import {socialLinks} from "../../pages/Event/Event";
 
 
 const Persons = ({persons}) => {
@@ -10,14 +12,12 @@ const Persons = ({persons}) => {
     const [activePerson, setActivePerson] = useState({});
     const [orderedPersons, setOrderedPerson] = useState([]);
 
-
     const clickHandler = (e)=>{
         if(e.target.closest('div').hasAttribute('data-id')){
             let index = e.target.closest('div').dataset.id;
             setActiveIndex(index);
         }
     }
-
 
     useEffect(()=>{
         let currentPerson = persons.filter((person, index)=>index == activeIndex)
@@ -29,7 +29,6 @@ const Persons = ({persons}) => {
     const getOrderedList = (persons)=>{
         const orderedList = persons.map((person,index)=>{
             //TODO алгоритм раздачки порядка (написать)
-
             // let order = 0;
             // if(index != activeIndex){
             //     order = Math.round(Math.random())
@@ -38,11 +37,7 @@ const Persons = ({persons}) => {
             return person;
         })
         return orderedList;
-
     }
-
-
-
 
     return (
         <Col className={style.persons}>
@@ -51,13 +46,14 @@ const Persons = ({persons}) => {
                     orderedPersons.map((person,index)=><Person key={index} isActive={index == activeIndex} clickHandler={clickHandler} {...person} />)
                 }
             </div>
-            <Row>
-                <Col offset={'l3'} l={6} className={`${style.activePersonTextContent} `}>
+            <div className={style.activePersonTextContent_row}>
+                <Col l={6} className={`${style.activePersonTextContent} `}>
                     <h3>{activePerson.firstname} {activePerson.surname}</h3>
                     <h4>{activePerson.profession}</h4>
                     <p>{activePerson.description}</p>
+                    <SocialLinks links={socialLinks}/>
                 </Col>
-            </Row>
+            </div>
         </Col>
     );
 };

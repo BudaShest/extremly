@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Tabs, Tab, Icon, NavItem, Row, Button, Col} from 'react-materialize';
+import {Navbar, Icon, NavItem, Row, Button, Col} from 'react-materialize';
 import style from './header.module.css';
 
 const Header = () => {
@@ -10,10 +10,10 @@ const Header = () => {
                 alignLinks="right"
                 brand={
                     <a className={style.logo} href="/"><Row>
-                        <Col className={`${style.logoCol} s4`}>
+                        <Col className={`s4`}>
                             <img className="responsive-img" src="/img/logo.png" alt=""/>
                         </Col>
-                        <Col className={`${style.logoCol} s8`}>
+                        <Col className={`s8`}>
                             <span className={`${style.logoSpan} row`}>Extremly</span>
                             <span className={`${style.logoText} row`}>Эсктримальный и нестандартный отдых</span>
                         </Col>
@@ -32,19 +32,13 @@ const Header = () => {
                     outDuration:200,
                     preventScroll:true
                 }}
-
             >
                 <NavItem href="#">Места</NavItem>
-                <NavItem href="#">События</NavItem>
+                <NavItem href="/events">События</NavItem>
                 <NavItem href="#">Личности</NavItem>
-                <Button
-                    node="button"
-                    type="submit"
-                    waves="light"
-                    className={style.loginBtn}
-                >
-                    Вход
-                </Button>
+                <NavItem>
+                    <Button className={style.loginBtn} href="/login" node="a" waves="light">Вход</Button>
+                </NavItem>
             </Navbar>
         </header>
     );

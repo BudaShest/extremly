@@ -1,11 +1,16 @@
-import React,{useState} from 'react';
-import {Row,Col, Select, Icon, DatePicker, Card, CardTitle, Pagination} from 'react-materialize';
+import React from 'react';
+import {Row,Col, Select, Icon, DatePicker, Card, CardTitle, Pagination,Button} from 'react-materialize';
 import style from './Records.module.css';
 
 const Records = ({records}) => {
 
     const badgeClickHandler = (e)=> {
         e.currentTarget.classList.toggle(style.filterBadge_active);
+    }
+
+    const changeFilterHandler = (e)=>{
+        console.log(e.currentTarget);
+        e.currentTarget.classList.add(style.filterBlock_input_active);
     }
 
     return (
@@ -16,7 +21,8 @@ const Records = ({records}) => {
                     <h5 className={style.filterBlock_headlines}>Место: </h5>
 
                     <Select
-                        className={style.filterBlock_inputs}
+                        onChange={changeFilterHandler}
+                        className={style.filterBlock_input}
                         icon={<Icon>cloud</Icon>}
                         id="Select-15"
                         multiple={false}
@@ -40,6 +46,9 @@ const Records = ({records}) => {
                         }}
                         value=""
                     >
+                        <option disabled value="">
+                            Выберите климат
+                        </option>
                         <option value="2">
                             Жаркий
                         </option>
@@ -49,7 +58,7 @@ const Records = ({records}) => {
                     </Select>
 
                     <Select
-                        className={style.filterBlock_inputs}
+                        className={style.filterBlock_input}
                         icon={<Icon>cloud</Icon>}
                         id="Select-15"
                         multiple={false}
@@ -73,6 +82,9 @@ const Records = ({records}) => {
                         }}
                         value=""
                     >
+                        <option disabled value="">
+                            Выберите страну
+                        </option>
                         <option value="2">
                             Россия
                         </option>
@@ -82,7 +94,7 @@ const Records = ({records}) => {
                     </Select>
 
                     <Select
-                        className={style.filterBlock_inputs}
+                        className={style.filterBlock_input}
                         icon={<Icon>cloud</Icon>}
                         id="Select-15"
                         multiple={false}
@@ -106,6 +118,9 @@ const Records = ({records}) => {
                         }}
                         value=""
                     >
+                        <option disabled value="">
+                            Выберите локацию
+                        </option>
                         <option value="2">
                             Тверь
                         </option>
@@ -292,6 +307,7 @@ const Records = ({records}) => {
                             yearRange: 10
                         }}
                     />
+                    <Button style={{backgroundColor:"#EE6E73"}} type="reset">Стереть фильтры</Button>
                 </form>
             </Col>
             <Col l={8}>

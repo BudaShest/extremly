@@ -8,8 +8,7 @@ import SocialLinks from "../../components/SocialLinks/SocialLinks";
 
 import {comments as defValueComments} from "../Main/SectionAbout";
 import {initialState as defValuePersons} from "../Main/SectionAbout";
-import FormContainer from "../../components/FormContainer/FormContainer";
-import Convex from "../../components/Convex/Convex";
+
 
 const defValueEvent = {
     name:"Burning Man",
@@ -39,10 +38,11 @@ const defValuephotos = [
     "https://conteudo.imguol.com.br/c/blogs/78/2019/09/19/o-mais-importante-evento-de-networking-do-mundo-que-voce-nunca-ouviu-falar-1568876557073_v2_1920x1080.jpg",
 ]
 
-const socialLinks = [
+export const socialLinks = [
     {id:0, img:"img/links/fb.png", src:"https://google.com"},
     {id:1, img:"img/links/ytb.png", src:"https://google.com"},
     {id:2, img:"img/links/wtsuo.png", src:"https://google.com"},
+    {id:1, img:"img/links/ytb.png", src:"https://google.com"},
 ]
 
 

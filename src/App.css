@@ -1,6 +1,12 @@
 /* Глобальные стили */
+body{
+    background-color: #222;
+}
 .select-dropdown{
     color: white;
+}
+.datepicker{
+    color:white;
 }
 
 .datepicker-row>*{

@@ -1,0 +1,10 @@
+.logForm{
+    display: flex;
+    flex-direction: column;
+    margin:30px;
+}
+
+.logForm_icon{
+    color:#F2733C;
+}
+

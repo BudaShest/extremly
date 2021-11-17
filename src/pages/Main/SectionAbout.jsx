@@ -4,7 +4,7 @@ import Persons from "../../components/Persons/Persons";
 import Comments from "../../components/Comments/Comments";
 import Convex from "../../components/Convex/Convex";
 import FormContainer from "../../components/FormContainer/FormContainer";
-import Footer from "../../components/Footer/Footer";
+
 
 
 
@@ -195,7 +195,7 @@ const SectionAbout = () => {
                                     />
                                     <Row>
                                         <Col push={'s7'} s={3}>
-                                            <Button >Подписаться</Button>
+                                            <Button style={{backgroundColor:"#DB4463"}} large>Подписаться</Button>
                                         </Col>
                                     </Row>
                             </Row>
