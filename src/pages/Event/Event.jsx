@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
-import {Carousel, Container, Row, Col, Select, Icon, TextInput, Button} from "react-materialize";
+import {Carousel, Container, Row, Col, Textarea, Button, Icon} from "react-materialize";
 import style from './Event.module.css';
 import Persons from "../../components/Persons/Persons";
 import Gallery from "../../components/Gallery/Gallery";
 import Comments from "../../components/Comments/Comments";
+import SocialLinks from "../../components/SocialLinks/SocialLinks";
 
-import {comments as defValueComments} from "../../components/SectionAbout";
-import {initialState as defValuePersons} from "../../components/SectionAbout";
+import {comments as defValueComments} from "../Main/SectionAbout";
+import {initialState as defValuePersons} from "../Main/SectionAbout";
 import FormContainer from "../../components/FormContainer/FormContainer";
 import Convex from "../../components/Convex/Convex";
 
@@ -36,6 +37,12 @@ const defValuephotos = [
     "https://journal.burningman.org/wp-content/uploads/2018/07/28826973_990752704408172_3881091770915510101_o.jpg",
     "https://look.com.ua/pic/201904/1920x1080/look.com.ua-344214.jpg",
     "https://conteudo.imguol.com.br/c/blogs/78/2019/09/19/o-mais-importante-evento-de-networking-do-mundo-que-voce-nunca-ouviu-falar-1568876557073_v2_1920x1080.jpg",
+]
+
+const socialLinks = [
+    {id:0, img:"img/links/fb.png", src:"https://google.com"},
+    {id:1, img:"img/links/ytb.png", src:"https://google.com"},
+    {id:2, img:"img/links/wtsuo.png", src:"https://google.com"},
 ]
 
 
@@ -69,22 +76,22 @@ const Event = () => {
                 <h5 className="center-align white-text">{event.type}</h5>
                 <Row>
                     <Col l={5}>
-                        <Col className="white-text">
-                            <h4>О событии</h4>
-                            <h5>Место:</h5>
+                        <Col style={{backgroundColor:"#111"}} className={style.eventDescription}>
+                            <h4 className={style.eventDescription_headlines}>О событии</h4>
+                            <h5 className={style.eventDescription_headlines}>Место:</h5>
                             <ul>
                                 <li><strong>Место проведения: </strong><a href="#">{event.place}</a></li>
                                 <li><strong>Страна проведения: </strong>{event.country}</li>
                                 <li><strong>Климат</strong>: {event.climat}</li>
                             </ul>
-                            <h5>Дата:</h5>
+                            <h5 className={style.eventDescription_headlines}>Дата:</h5>
                             <ul>
                                 <li><strong>Начинается: </strong> {event.from}</li>
                                 <li><strong>Заканчивается: </strong> {event.until}</li>
                             </ul>
-                            <h5>Прочее:</h5>
+                            <h5 className={style.eventDescription_headlines}>Прочее:</h5>
                             <ul>
-                                <li><strong></strong></li>
+                                <li><strong>Возрастные ограничения: </strong> {event.age_restrictions}</li>
                             </ul>
                         </Col>
                     </Col>
@@ -95,74 +102,22 @@ const Event = () => {
                         </Col>
                     </Col>
                 </Row>
-                <h3 className="white-text center-align">Галерия</h3>
+                <h3 className="white-text center-align">Галерея</h3>
                 <Gallery photos={photos}/>
                 <h3 className="white-text center-align">Ответсвенные лица:</h3>
                 <Persons persons={defValuePersons}/>
-                <Comments comments={comments}/>
-                <Convex size={"large"} s={12} background={'linear-gradient(269.17deg, #DB4463 13.23%, #F2733C 88.24%)'}>
-                    <FormContainer icon={<img style={{width:'100%'}} src="img/ui/letter.png" alt=""/>} background={'#111111'}>
-                        <form action="">
-                            <Row>
+                <Comments comments={comments}>
+                    <form className={style.commentForm} action="">
+                        <h5 className={style.commentForm_title}>Оставьте комментарий!</h5>
+                        <Textarea
+                            id="Textarea-41"
+                            label="Изложите свои мысли..."
+                        />
+                        <Button node="button" type="submit" waves="light">Оставить комментарий<Icon right>send</Icon></Button>
+                    </form>
+                    <SocialLinks links={socialLinks}/>
+                </Comments>
 
-                                <Select
-                                    s={10}
-                                    icon={<Icon className="little-icon">cloud</Icon>}
-                                    id="Select-15"
-                                    multiple={false}
-                                    options={{
-                                        classes: '',
-                                        dropdownOptions: {
-                                            alignment: 'left',
-                                            autoTrigger: true,
-                                            closeOnClick: true,
-                                            constrainWidth: true,
-                                            coverTrigger: true,
-                                            hover: false,
-                                            inDuration: 150,
-                                            onCloseEnd: null,
-                                            onCloseStart: null,
-                                            onOpenEnd: null,
-                                            onOpenStart: null,
-                                            outDuration: 250
-                                        }
-                                    }}
-                                    value=""
-                                >
-                                    <option
-                                        disabled
-                                        value=""
-                                    >
-                                        Choose your option
-                                    </option>
-                                    <option value="1">
-                                        Option 1
-                                    </option>
-                                    <option value="2">
-                                        Option 2
-                                    </option>
-                                    <option value="3">
-                                        Option 3
-                                    </option>
-                                </Select>
-
-
-                                <TextInput
-                                    s={10}
-
-                                    icon={<Icon className="little-icon">email</Icon>}
-                                    id="TextInput-34"
-                                    label="Email"
-                                />
-                                <Row>
-                                    <Col push={'s7'} s={3}>
-                                        <Button >Подписаться</Button>
-                                    </Col>
-                                </Row>
-                            </Row>
-                        </form>
-                    </FormContainer>
-                </Convex>
             </Container>
         </main>
     );

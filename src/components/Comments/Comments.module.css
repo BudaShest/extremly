@@ -13,3 +13,7 @@
 .commentsText>*{
     margin: 30px 0;
 }
+
+.pagination{
+    padding: 15px;
+}

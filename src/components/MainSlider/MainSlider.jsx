@@ -23,8 +23,8 @@ const MainSlider = () => {
             }}
         >
             {
-                slides.map(slide=>(
-                    <Slide image={<img alt="" src={slide.img}/>}>
+                slides.map((slide,index)=>(
+                    <Slide key={index} image={<img alt="" src={slide.img}/>}>
                         <Caption style={{backgroundColor:"rgba(0,0,0,0.8)",padding:"80px 0"}} placement="center">
                             <h3>
                                 {slide.title}

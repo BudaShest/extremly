@@ -1,18 +1,19 @@
 import React from 'react';
 import {Container,Row, Col, Button, Icon, Card, Select, TextInput} from 'react-materialize'
-import Persons from "./Persons/Persons";
-import Comments from "./Comments/Comments";
-import Convex from "./Convex/Convex";
-import FormContainer from "./FormContainer/FormContainer";
-import Footer from "./Footer/Footer";
+import Persons from "../../components/Persons/Persons";
+import Comments from "../../components/Comments/Comments";
+import Convex from "../../components/Convex/Convex";
+import FormContainer from "../../components/FormContainer/FormContainer";
+import Footer from "../../components/Footer/Footer";
 
 
 
 
 export const comments = [
-    {login:'Vasya',avatar:'https://twizz.ru/wp-content/uploads/-000//1/12-32.jpg', date:'10.10.2021', text:"Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям." },
-    {login:'Vasy2',avatar:'https://static.kulturologia.ru/files/u18214/portrait61.jpg', date:'10.10.2021', text:'Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития.'},
-    {login:'Vasy3',avatar:'https://i.pinimg.com/originals/37/96/88/379688670502e9edf28d261dd3c143d2.jpg', date:'10.10.2021', text:'На чили ан кайфи'},
+    {id:0, login:'Vasya',avatar:'https://twizz.ru/wp-content/uploads/-000//1/12-32.jpg', date:'10.10.2021', text:"Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития. Разнообразный и богатый опыт новая модель организационной деятельности требуют от нас анализа системы обучения кадров, соответствует насущным потребностям." },
+    {id:1, login:'Vasy2',avatar:'https://static.kulturologia.ru/files/u18214/portrait61.jpg', date:'10.10.2021', text:'Равным образом сложившаяся структура организации играет важную роль в формировании направлений прогрессивного развития.'},
+    {id:2, login:'Vasy3',avatar:'https://i.pinimg.com/originals/37/96/88/379688670502e9edf28d261dd3c143d2.jpg', date:'10.10.2021', text:'На чили ан кайфи'},
+    {id:3, login:'Vasy4 Fractal',avatar:'https://i.pinimg.com/originals/37/96/88/379688670502e9edf28d261dd3c143d2.jpg', date:'10.10.2021', text:'На чили ан кайфи'},
 ]
 
 
@@ -106,7 +107,7 @@ const SectionAbout = () => {
                 </Row>
                 <h3 className="white-text">Наши преимущества</h3>
                 <Row>
-                    <Col className="s5 large" style={{backgroundColor:'#F2733C',padding:0, margin:"50px 0"}}>
+                    <Col className="s5 large" style={{backgroundColor:'#f2733c',padding:0, margin:"50px 0"}}>
                         <Card style={{backgroundColor:"#111111", width:"100%", height:'100%', margin:0, position:'relative', top:20,left:20}}
                         title="Мы сотрудничаем напрямую с организаторами"
                         className="white-text">
@@ -130,7 +131,13 @@ const SectionAbout = () => {
                 </Row>
                 <h3 className="white-text">Наша команда:</h3>
                 <Persons persons={initialState}/>
-                <Comments comments={comments}/>
+                <Comments comments={comments}>
+                    <>
+                        <h2>Lorem ipsum.</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At commodi consectetur consequatur corporis exercitationem hic incidunt, ipsam ipsum modi nam natus nemo non perspiciatis placeat quasi quos reiciendis sunt totam ut vel velit voluptatibus voluptatum! Autem delectus dicta explicabo omnis.</p>
+                        <Button large>Вперед!</Button>
+                    </>
+                </Comments>
                 <h3 className="white-text">Подписаться на рассылку:</h3>
                 <Convex size={"large"} s={12} background={'linear-gradient(269.17deg, #DB4463 13.23%, #F2733C 88.24%)'}>
                     <FormContainer icon={<img style={{width:'100%'}} src="img/ui/letter.png" alt=""/>} background={'#111111'}>

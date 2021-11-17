@@ -1,15 +1,16 @@
 import React from 'react';
 import {Row, Col, MediaBox} from "react-materialize";
+import style from './Gallery.module.css';
 
 
 
 const Gallery = ({photos}) => {
     return (
-        <Row>
+        <Row className={style.galleryWrapper}>
             {
-                photos.map(photo=>{
+                photos.map((photo,index)=>{
                     return (
-                        <Col l={4} s={6} style={{margin:"10px 0"}}>
+                        <Col key={index} l={4} s={6} style={{margin:"10px 0"}}>
                             <MediaBox
                                 id="MediaBox_9"
                                 options={{
