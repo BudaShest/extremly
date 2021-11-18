@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Icon, NavItem, Row, Button, Col} from 'react-materialize';
 import style from './header.module.css';
+import {NavLink} from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -33,11 +34,17 @@ const Header = () => {
                     preventScroll:true
                 }}
             >
-                <NavItem href="#">Места</NavItem>
-                <NavItem href="/events">События</NavItem>
-                <NavItem href="#">Личности</NavItem>
                 <NavItem>
-                    <Button className={style.loginBtn} href="/login" node="a" waves="light">Вход</Button>
+                    <NavLink to="/places">Места</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink to="/events">События</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink to="/places">Личности</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className={`${style.loginBtn} btn waves-effect waves-light`} to="/login">Войти</NavLink>
                 </NavItem>
             </Navbar>
         </header>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import {Container, Icon, TextInput, Row, Button, Col} from "react-materialize";
 import Convex from "../../components/Convex/Convex";
 import FormContainer from "../../components/FormContainer/FormContainer";
@@ -13,26 +14,26 @@ const Login = () => {
                         <form action="" className={style.logForm}>
                             <Row>
                                 <TextInput s={9} l={9}
-                                    className={style.logForm_icon} icon={<Icon>email</Icon>} id="TextInput-36"
+                                    className={style.logForm_icon} icon={<Icon>email</Icon>} id="TextInput-0"
                                            label="Email"
                                 />
                                 <TextInput s={9} l={9}
-                                    icon={<Icon>password</Icon>} id="TextInput-39" label="Password" password
+                                    icon={<Icon>password</Icon>} id="TextInput-1" label="Password" password
                                 />
                                 <Col style={{margin:40}} s={8}>
                                     <Col l={4} push={"s2"}>
-                                        <Button style={{backgroundColor:"#42A379"}} node="button" type="submit" waves="light">Войти
+                                        <Button large style={{backgroundColor:"#42A379"}} node="button" type="submit" waves="light">Войти
                                             <Icon right>login</Icon>
                                         </Button>
                                     </Col>
                                     <Col l={4} push={"s2"}>
-                                        <Button style={{backgroundColor:"#ee6e73"}} node="button" type="reset" waves="light">Стереть
+                                        <Button large style={{backgroundColor:"#ee6e73"}} node="button" type="reset" waves="light">Стереть
                                             <Icon right>close</Icon>
                                         </Button>
                                     </Col>
                                 </Col>
                                 <Col push={"s1"} s={11}>
-                                    <p style={{color:"lightgrey"}}>Вы здесь впервые? Тогда <a href="">зарегистрируйтесь</a></p>
+                                    <p style={{color:"lightgrey"}}>Вы здесь впервые? Тогда <NavLink to="/register">зарегистрируйтесь</NavLink></p>
                                 </Col>
                             </Row>
                         </form>
