@@ -45,6 +45,7 @@ const Country = sequelize.define('country',{
     flag: {type:DataTypes.STRING, allowNull: true},
 }, {freezeTableName:true})
 
+
 //Модель климата
 const Climat = sequelize.define('climat',{
     id:{type:DataTypes.INTEGER, primaryKey:true, autoIncrement:true},

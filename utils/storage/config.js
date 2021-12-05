@@ -5,6 +5,8 @@ const {uid} = require('uid/single');
 //Корректные mime-типы
 const correctMimeTypes = ['image/gif','image/jpeg','image/pjpeg','image/png'];
 
+//TODO фильтрацию на типы контента!
+
 const imageStorageConfig = multer.diskStorage({
 
     destination: function (req,file,cb){
